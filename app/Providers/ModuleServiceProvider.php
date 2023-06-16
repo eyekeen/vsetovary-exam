@@ -9,7 +9,7 @@ class ModuleServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        // Правильное опраделение политик доступа при передаче DTO вместо моделей
+        // Правильное определение политик доступа при передаче DTO вместо моделей
         Gate::guessPolicyNamesUsing(function ($className) {
             $regex = '~^(?<domain>[A-Za-z\d]+)\\\\'
                 // Обеспечиваем поддержку и моделей тоже, т.к. этот метод теперь заменяет старый механизм полностью

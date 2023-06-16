@@ -59,6 +59,7 @@
 </template>
 
 <script>
+
 import { router } from "@inertiajs/vue3";
 
 export default {

@@ -6,8 +6,13 @@ use Illuminate\Support\ServiceProvider;
 
 class ShopsServiceProvider extends ServiceProvider
 {
+    protected array $policies  =  [
+        'Shops\Domain\Models\Shop' => 'Shops\Application\Policies\ShopPolicy',
+    ];
+
     public function register()
     {
+        
     }
 
 

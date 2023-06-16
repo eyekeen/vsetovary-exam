@@ -38,6 +38,8 @@ class UserController extends Controller
             searchQuery: $request->get('q'),
         );
 
+        
+
         $roleTitles = config('models.users.roles', []);
 
         return Inertia::render('Users/Index', [

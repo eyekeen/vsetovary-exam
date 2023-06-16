@@ -2,23 +2,23 @@
 
 ## Установка
 
-1. Загрузить backend-зависимости, чтобы был Laravel и Sail, входящий в него
+1. Создать первоначальный файл конфигурации среды
+
+```bash
+cp .env.example .env
+```
+
+2. Загрузить backend-зависимости, чтобы был Laravel и Sail, входящий в него
 
 ```bash
 composer install
 ```
 
-2. Установить [Sail](https://laravel.com/docs/10.x/sail)
+3. Установить [Sail](https://laravel.com/docs/10.x/sail)
 
 ```bash
 echo "alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'" >>~/.bash_profile
 source ~/.bash_profile
-```
-
-3. Создать первоначальный файл конфигурации среды
-
-```bash
-cp .env.example .env
 ```
 
 4. Запустить backend в docker в первый раз

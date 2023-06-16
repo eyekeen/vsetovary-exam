@@ -30,7 +30,7 @@ class ModuleServiceProvider extends ServiceProvider
          * Для каждого из них должен существовать свой ServiceProvider, даже не делаем доп.проверок
          */
         foreach (config('app.modules', []) as $module) {
-            $this->app->register("\\$module\\Providers\\${module}ServiceProvider");
+            $this->app->register("\\$module\\Providers\\{$module}ServiceProvider");
         }
     }
 }

@@ -3,9 +3,10 @@
 namespace Shops\Application\Policies;
 
 use Accounts\Domain\Models\User;
+use Shops\Domain\Models\Shop;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class UserPolicy
+class ShopPolicy
 {
     use HandlesAuthorization;
 
@@ -15,7 +16,7 @@ class UserPolicy
     public function viewAny(User $authUser)
     {
         // Пока что могут только админы
-        return ($authUser->role === 'admin');
+        return ($authUser->role === 'owner');
     }
 
     /**

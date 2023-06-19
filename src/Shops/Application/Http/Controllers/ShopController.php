@@ -86,9 +86,9 @@ class ShopController extends Controller
      */
     public function show(Request $request, int $shop)
     {
+        abort_if($request->user()->cannot('view', Shop::class), 403);
         try {
             $shopDto = $this->shopService->getById($shop);
-            abort_if($request->user()->cannot('view', $shopDto), 403);
         } catch (EntityNotFoundException $exception) {
             abort(Response::HTTP_NOT_FOUND);
         }
@@ -104,9 +104,9 @@ class ShopController extends Controller
      */
     public function edit(Request $request, int $shop)
     {
+        abort_if($request->user()->cannot('update', Shop::class), 403);
         try {
             $shopDto = $this->shopService->getById($shop);
-            abort_if($request->user()->cannot('update', $shopDto), 403);
         } catch (EntityNotFoundException $exception) {
             abort(Response::HTTP_NOT_FOUND);
         }
@@ -123,9 +123,9 @@ class ShopController extends Controller
      */
     public function update(Request $request, int $shop)
     {
+        abort_if($request->user()->cannot('update', Shop::class), 403);
         try {
             $shopDto = $this->shopService->getById($shop);
-            abort_if($request->user()->cannot('update', $shopDto), 403);
             $this->shopService->update(
                 id: $shopDto->id,
                 title: $request->stringOrNull('title'),
@@ -148,9 +148,9 @@ class ShopController extends Controller
      */
     public function destroy(Request $request, int $shop)
     {
+        abort_if($request->user()->cannot('delete', Shop::class), 403);
         try {
             $shopDto = $this->shopService->getById($shop);
-            abort_if($request->user()->cannot('delete', $shopDto), 403);
             $this->shopService->delete($shopDto->id);
         } catch (EntityNotFoundException $exception) {
             abort(Response::HTTP_NOT_FOUND);

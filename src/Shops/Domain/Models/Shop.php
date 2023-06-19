@@ -8,11 +8,14 @@ use App\Helpers\DomainModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\Access\Authorizable;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-class Shop extends DomainModel
+class Shop extends DomainModel implements AuthorizableContract
 {
     use HasFactory;
     use Notifiable;
+    use Authorizable;
 
     public function fillableRules(): array
     {

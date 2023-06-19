@@ -2,9 +2,9 @@
 
 namespace Shops\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use App\Helpers\DomainServiceProvider;
 
-class ShopsServiceProvider extends ServiceProvider
+class ShopsServiceProvider extends DomainServiceProvider
 {
     protected array $policies  =  [
         'Shops\Domain\Models\Shop' => 'Shops\Application\Policies\ShopPolicy',
